@@ -191,7 +191,7 @@ r.cliente.toLowerCase().includes(texto)
 ){
 
 html+=`
-<tr>
+<tr class="${r.estado==='PAGADA' ? 'pagada' : ''}">
 <td>${r.nombre}</td>
 <td>${r.talla}</td>
 <td>${r.cliente}</td>
