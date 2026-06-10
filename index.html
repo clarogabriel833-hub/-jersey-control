@@ -165,9 +165,9 @@ estado:document.getElementById("estado").value
 registro.restante=registro.venta-registro.abonado;
 registro.ganancia=registro.venta-registro.costo;
 
-actualizarTotales();
 registros.push(registro);
-  localStorage.setItem("registros", JSON.stringify(registros));
+localStorage.setItem("registros", JSON.stringify(registros));
+actualizarTotales();
 mostrar();
 
 }
