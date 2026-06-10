@@ -167,6 +167,7 @@ registro.ganancia=registro.venta-registro.costo;
 
 actualizarTotales();
 registros.push(registro);
+  localStorage.setItem("registros", JSON.stringify(registros));
 mostrar();
 
 }
