@@ -249,6 +249,10 @@ function editar(i){
     registros[i].restante =
       registros[i].venta -
       registros[i].abonado;
+    
+    registros[i].ganancia =
+    registros[i].venta -
+    registros[i].costo;
 
     mostrar();
     actualizarTotales();
