@@ -114,6 +114,14 @@ $<span id="pen">0</span>
 
 <input id="nombre" placeholder="Nombre de playera">
 
+<select id="filtro">
+<option value="">Todos</option>
+<option value="STK">STK</option>
+<option value="EN CAMINO">EN CAMINO</option>
+<option value="ENTREGADA">ENTREGADA</option>
+<option value="PAGADA">PAGADA</option>
+</select>
+
 <input id="talla" placeholder="Talla">
 
 <input id="cliente" placeholder="Cliente">
@@ -148,6 +156,7 @@ $<span id="pen">0</span>
 <th>Playera</th>
 <th>Talla</th>
 <th>Cliente</th>
+<th>Fecha</th>
 <th>Venta</th>
 <th>Abonado</th>
 <th>Restante</th>
@@ -166,7 +175,8 @@ $<span id="pen">0</span>
 let registros = JSON.parse(localStorage.getItem("registros")) || [];
 
 document.getElementById("buscar").addEventListener("keyup",mostrar);
-
+document.getElementById("filtro")
+.addEventListener("change",mostrar);
 function agregarRegistro(){
 
 const registro={
@@ -208,6 +218,7 @@ html+=`
 <td>${r.nombre}</td>
 <td>${r.talla}</td>
 <td>${r.cliente}</td>
+<td>${r.fecha}</td>
 <td>$${r.venta}</td>
 <td>$${r.abonado}</td>
 <td>$${r.restante}</td>
