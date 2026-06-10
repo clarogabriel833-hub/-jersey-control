@@ -185,6 +185,166 @@ Pendiente
 Guardar Jersey
 </button>
 </div>
+<div class="card">
+  <h3>🔍 Buscar</h3>
+<input id="buscar" placeholder="Buscar playera, equipo o cliente">
+<select id="filtro">
+<option value="">Todos los estados</option>
+<option value="STK">STK</option>
+<option value="EN CAMINO">EN CAMINO</option>
+<option value="ENTREGADA">ENTREGADA</option>
+<option value="PAGADA">PAGADA</option>
+</select>
+<select id="filtro">
+<option value="">Todos los estados</option>
+<option value="STK">STK</option>
+<option value="EN CAMINO">EN CAMINO</option>
+<option value="ENTREGADA">ENTREGADA</option>
+<option value="PAGADA">PAGADA</option>
+</select>
+</div>
+<div class="card">
+<h3>📦 Inventario</h3>
+<div style="overflow-x:auto;">
+<table>
+<thead>
+<tr>
+<th>Foto</th>
+<th>Playera</th>
+<th>Equipo</th>
+<th>Talla</th>
+<th>Cliente</th>
+<th>Fecha</th>
+<th>Venta</th>
+<th>Abonado</th>
+<th>Restante</th>
+<th>Estado</th>
+<th>Acciones</th>
+</tr>
+</thead>
+<tbody id="tabla"></tbody>
+</table>
+</div>
+</div>
+<script>
+
+let registros =
+JSON.parse(localStorage.getItem("registros"))
+|| [];
+
+document
+.getElementById("buscar")
+.addEventListener("keyup",mostrar);
+
+document
+.getElementById("filtro")
+.addEventListener("change",mostrar);
+
+function guardarDatos(){
+
+localStorage.setItem(
+"registros",
+JSON.stringify(registros)
+);
+
+}
+
+function convertirImagen(file){
+
+return new Promise((resolve)=>{
+
+const reader = new FileReader();
+
+reader.onload = e => {
+resolve(e.target.result);
+};
+
+reader.readAsDataURL(file);
+
+});
+
+}
+
+async function agregarRegistro(){
+
+const archivo =
+document.getElementById("foto").files[0];
+
+let imagen = "";
+
+if(archivo){
+
+imagen = await convertirImagen(
+archivo
+);
+
+}
+
+const registro={
+
+nombre:
+document.getElementById("nombre").value,
+
+equipo:
+document.getElementById("equipo").value,
+
+talla:
+document.getElementById("talla").value,
+
+cliente:
+document.getElementById("cliente").value,
+
+foto:imagen,
+
+costo:Number(
+document.getElementById("costo").value
+),
+
+venta:Number(
+document.getElementById("venta").value
+),
+
+abonado:Number(
+document.getElementById("abonado").value || 0
+),
+
+fecha:new Date()
+.toLocaleDateString(),
+
+estado:
+document.getElementById("estado").value
+
+};
+
+registro.restante =
+registro.venta -
+registro.abonado;
+
+registro.ganancia =
+registro.venta -
+registro.costo;
+
+if(registro.restante <= 0){
+
+registro.restante = 0;
+
+registro.estado = "PAGADA";
+
+}
+
+registros.push(registro);
+
+guardarDatos();
+
+actualizarTotales();
+
+mostrar();
+
+}
+
+
+
+
 
 
 
