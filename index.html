@@ -176,6 +176,7 @@ cliente:document.getElementById("cliente").value,
 costo:Number(document.getElementById("costo").value),
 venta:Number(document.getElementById("venta").value),
 abonado:Number(document.getElementById("abonado").value || 0),
+fecha:new Date().toLocaleDateString(),
 estado:document.getElementById("estado").value
 };
 
@@ -203,7 +204,7 @@ r.cliente.toLowerCase().includes(texto)
 ){
 
 html+=`
-<tr class="${r.estado==='PAGADA' ? 'pagada' : ''}">
+<tr>
 <td>${r.nombre}</td>
 <td>${r.talla}</td>
 <td>${r.cliente}</td>
