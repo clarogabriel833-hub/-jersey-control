@@ -177,7 +177,7 @@ let texto=document.getElementById("buscar").value.toLowerCase();
 
 let html="";
 
-registros.forEach(r=>{
+registros.forEach((r,i)=>{
 
 if(
 r.nombre.toLowerCase().includes(texto) ||
