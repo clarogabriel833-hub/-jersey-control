@@ -198,7 +198,11 @@ html+=`
 <td>$${r.venta}</td>
 <td>$${r.abonado}</td>
 <td>$${r.restante}</td>
-<td>${r.estado}</td>
+<td>
+${r.estado === "PAGADA"
+ ? '<span class="estado-pagada">PAGADA</span>'
+ : r.estado}
+</td>
 <td>
 <button onclick="editar(${i})">✏️</button>
 <button onclick="eliminarRegistro(${i})">🗑️</button>
