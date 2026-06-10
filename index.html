@@ -1,51 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jersey Control</title>
-</head>
-<body style="font-family:Arial;padding:20px;">
-<h1>⚽ Jersey Control</h1>
+<title>Jersey Control Pro</title>
 
-<h3>Agregar playera</h3>
-
-<input id="nombre" placeholder="Nombre de la playera"><br><br>
-
-<input id="talla" placeholder="Talla"><br><br>
-
-<input id="cliente" placeholder="Cliente"><br><br>
-
-<input id="costo" type="number" placeholder="Costo"><br><br>
-
-<input id="venta" type="number" placeholder="Precio de venta"><br><br>
-
-<button onclick="agregar()">Agregar</button>
-
-<h3>Inventario</h3>
-
-<ul id="lista"></ul>
-
-<script>
-function agregar() {
- let nombre = document.getElementById('nombre').value;
- let talla = document.getElementById('talla').value;
- let cliente = document.getElementById('cliente').value;
- let costo = document.getElementById('costo').value;
- let venta = document.getElementById('venta').value;
-
- let li = document.createElement('li');
-
- li.innerHTML =
- nombre +
- ' | Talla: ' + talla +
- ' | Cliente: ' + cliente +
- ' | Costo: $' + costo +
- ' | Venta: $' + venta;
-
- document.getElementById('lista').appendChild(li);
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:15px;
 }
-</script>
+
+h1{
+text-align:center;
+}
+
+.card{
+background:white;
+padding:15px;
+border-radius:10px;
+margin-bottom:15px;
+box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+
+input,select,button{
+width:100%;
+padding:10px;
+margin-top:8px;
+box-sizing:border-box;
+}
+
+button{
+background:#0a84ff;
+color:white;
+border:none;
+border-radius:8px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+font-size:12px;
+}
+
+th,td{
+border:1px solid #ddd;
+padding:6px;
+}
+
+.dashboard{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.box{
+background:#fff;
+padding:10px;
+border-radius:10px;
+text-align:center;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>⚽ Jersey Control Pro</h1>
+
+<div class="dashboard">
+<div class="box">
+Inversión<br>
+$<span id="inv">0</span>
+</div>
+
+<div class="box">
+Ganancia<br>
+$<span id="gan">0</span>
+</div>
+
+<div class="box">
+Ingresos<br>
+$<span id="ing">0</span>
+</div>
+
+<div class="box">
+Pendiente<br>
+$<span id="pen">0</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Agregar Playera</h3>
+
+<input id="nombre" placeholder="Nombre de playera">
+
+<input id="talla" placeholder="Talla">
+
+<input id="cliente" placeholder="Cliente">
+
+<input id="costo" type="number" placeholder="Costo">
+
+<input id="venta" type="number" placeholder="Precio de venta">
+
+<input id="abonado" type="number" placeholder="Abonado">
+
+<select id="estado">
+<option>STK</option>
+<option>EN CAMINO</option>
+<option>ENTREGADA</option>
+</select>
+
+<button>Agregar</button>
+
+</div>
 
 </body>
 </html>
