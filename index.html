@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jersey Control</title>
+</head>
+<body style="font-family:Arial;padding:20px;">
+<h1>⚽ Jersey Control</h1>
+
+<h3>Agregar playera</h3>
+
+<input id="nombre" placeholder="Nombre de la playera"><br><br>
+
+<input id="talla" placeholder="Talla"><br><br>
+
+<input id="cliente" placeholder="Cliente"><br><br>
+
+<input id="costo" type="number" placeholder="Costo"><br><br>
+
+<input id="venta" type="number" placeholder="Precio de venta"><br><br>
+
+<button onclick="agregar()">Agregar</button>
+
+<h3>Inventario</h3>
+
+<ul id="lista"></ul>
+
+<script>
+function agregar() {
+ let nombre = document.getElementById('nombre').value;
+ let talla = document.getElementById('talla').value;
+ let cliente = document.getElementById('cliente').value;
+ let costo = document.getElementById('costo').value;
+ let venta = document.getElementById('venta').value;
+
+ let li = document.createElement('li');
+
+ li.innerHTML =
+ nombre +
+ ' | Talla: ' + talla +
+ ' | Cliente: ' + cliente +
+ ' | Costo: $' + costo +
+ ' | Venta: $' + venta;
+
+ document.getElementById('lista').appendChild(li);
+}
+</script>
+
+</body>
+</html>
