@@ -3,40 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jersey Control Pro</title>
-
+<title>Jersey Control Pro 2.0</title>
 <style>
-body{
-font-family:Arial,sans-serif;
-background:#f4f4f4;
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0b3d91,#0a84ff);
+min-height:100vh;
 padding:15px;
 }
 
 h1{
+color:white;
 text-align:center;
+margin-bottom:15px;
 }
 
 .card{
 background:white;
 padding:15px;
-border-radius:10px;
+border-radius:15px;
 margin-bottom:15px;
-box-shadow:0 2px 6px rgba(0,0,0,.1);
+box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
 
-input,select,button{
+.dashboard{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-bottom:15px;
+}
+
+.box{
+background:white;
+border-radius:15px;
+padding:15px;
+text-align:center;
+font-weight:bold;
+box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.box span{
+display:block;
+font-size:20px;
+margin-top:5px;
+color:#0a84ff;
+}
+
+input,
+select,
+button{
 width:100%;
-padding:10px;
+padding:12px;
 margin-top:8px;
-box-sizing:border-box;
+border-radius:10px;
+border:1px solid #ddd;
 }
 
 button{
 background:#0a84ff;
 color:white;
 border:none;
-border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+opacity:.9;
 }
 
 table{
@@ -45,284 +84,121 @@ border-collapse:collapse;
 font-size:12px;
 }
 
-th,td{
-border:1px solid #ddd;
-padding:6px;
+th{
+background:#0a84ff;
+color:white;
+padding:8px;
 }
 
-.dashboard{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
-
-.box{
-background:#fff;
-padding:10px;
-border-radius:10px;
+td{
+padding:8px;
+border-bottom:1px solid #ddd;
 text-align:center;
-font-weight:bold;
 }
 
-  .box{
-    background:#fff;
-    padding:10px;
-    border-radius:10px;
-    text-align:center;
-    font-weight:bold;
+img{
+width:60px;
+height:60px;
+object-fit:cover;
+border-radius:10px;
 }
 
 .estado-pagada{
-    background:#28a745;
-    color:white;
-    font-weight:bold;
-    border-radius:6px;
-    padding:4px 8px;
-    text-align:center;
+background:#28a745;
+color:white;
+padding:4px 8px;
+border-radius:8px;
+font-weight:bold;
 }
+
+.estado-camino{
+background:#007bff;
+color:white;
+padding:4px 8px;
+border-radius:8px;
+font-weight:bold;
+}
+
+.estado-entregada{
+background:#ffc107;
+color:black;
+padding:4px 8px;
+border-radius:8px;
+font-weight:bold;
+}
+
+.estado-stk{
+background:#6c757d;
+color:white;
+padding:4px 8px;
+border-radius:8px;
+font-weight:bold;
+}
+
 </style>
 </head>
-
 <body>
-
-<h1>⚽ Jersey Control Pro</h1>
-
-<div class="dashboard">
+<h1>⚽ Jersey Control Pro 2.0</h1>
+  <div class="dashboard">
 <div class="box">
-Inversión<br>
-$<span id="inv">0</span>
+Inversión
+<span id="inv">0</span>
 </div>
-
 <div class="box">
-Ganancia<br>
-$<span id="gan">0</span>
+Ganancia
+<span id="gan">0</span>
 </div>
-
 <div class="box">
-Ingresos<br>
-$<span id="ing">0</span>
+Ingresos
+<span id="ing">0</span>
 </div>
-
 <div class="box">
-Pendiente<br>
-$<span id="pen">0</span>
+Pendiente
+<span id="pen">0</span>
 </div>
 </div>
-
 <div class="card">
-<h3>Agregar Playera</h3>
-
-<input id="nombre" placeholder="Nombre de
-
-<input id="talla" placeholder="Talla">
-
+<h3>➕ Agregar Jersey</h3>
+<input id="nombre" placeholder="Nombre de la playera">
+<input id="equipo" placeholder="Equipo">
+<select id="talla">
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>2XL</option>
+<option>3XL</option>
+<option>4XL</option>
+</select>
 <input id="cliente" placeholder="Cliente">
-
+<input id="foto" type="file" accept="image/*">
 <input id="costo" type="number" placeholder="Costo">
-
 <input id="venta" type="number" placeholder="Precio de venta">
-
-<input id="abonado" type="number" placeholder="Abonado">
-  
+<input id="venta" type="number" placeholder="Precio de venta">
 <select id="estado">
-  <option>STK</option>
-  <option>EN CAMINO</option>
-  <option>ENTREGADA</option>
-  <option>PAGADA</option>
+<option>STK</option>
+<option>EN CAMINO</option>
+<option>ENTREGADA</option>
+<option>PAGADA</option>
 </select>
-
-<button onclick="agregarRegistro()">Agregar</button>
-
-</div>
-<div class="card">
-<h3>🔍 Buscar</h3>
-
-<input id="buscar" placeholder="Buscar playera o cliente">
-
-<select id="filtro">
-<option value="">Todos</option>
-<option value="STK">STK</option>
-<option value="EN CAMINO">EN CAMINO</option>
-<option value="ENTREGADA">ENTREGADA</option>
-<option value="PAGADA">PAGADA</option>
-</select>
-
-<div class="card">
-<h3>📦 Inventario</h3>
-
-<table>
-<thead>
-<tr>
-
-<th>Playera</th>
-<th>Talla</th>
-<th>Cliente</th>
-<th>Fecha</th>
-<th>Venta</th>
-<th>Abonado</th>
-<th>Restante</th>
-<th>Estado</th>
-<th>Acciones</th>
-</tr>
-</thead>
-
-<tbody id="tabla"></tbody>
-
-</table>
+<button onclick="agregarRegistro()">
+Guardar Jersey
+</button>
 </div>
 
-<script>
-
-let registros = JSON.parse(localStorage.getItem("registros")) || [];
-
-document.getElementById("buscar")
-.addEventListener("keyup", mostrar);
-
-if(document.getElementById("filtro")){
-  document.getElementById("filtro")
-  .addEventListener("change", mostrar);
-}
-                      
-function agregarRegistro(){
-
-const registro={
-nombre:document.getElementById("nombre").value,
-talla:document.getElementById("talla").value,
-cliente:document.getElementById("cliente").value,
-costo:Number(document.getElementById("costo").value),
-venta:Number(document.getElementById("venta").value),
-abonado:Number(document.getElementById("abonado").value || 0),
-fecha:new Date().toLocaleDateString(),
-estado:document.getElementById("estado").value
-};
-
-registro.restante=registro.venta-registro.abonado;
-registro.ganancia=registro.venta-registro.costo;
-
-registros.push(registro);
-localStorage.setItem("registros", JSON.stringify(registros));
-actualizarTotales();
-mostrar();
-  document.getElementById("nombre").value = "";
-document.getElementById("talla").value = "";
-document.getElementById("cliente").value = "";
-document.getElementById("costo").value = "";
-document.getElementById("venta").value = "";
-document.getElementById("abonado").value = "";
-
-}
-let html="";
-
-registros.forEach((r,i)=>{
-
-if(
-(
-r.nombre.toLowerCase().includes(texto) ||
-r.cliente.toLowerCase().includes(texto)
-)
-&&
-(
-filtro === "" ||
-r.estado === filtro
-)
-){
-
-html+=`
-<tr>
-<td>${r.nombre}</td>
-<td>${r.talla}</td>
-<td>${r.cliente}</td>
-<td>${r.fecha}</td>
-<td>$${r.venta}</td>
-<td>$${r.abonado}</td>
-<td>$${r.restante}</td>
-<td>
-${r.estado === "PAGADA"
- ? '<span class="estado-pagada">PAGADA</span>'
- : r.estado}
-</td>
-<td>
-<button onclick="editar(${i})">✏️</button>
-<button onclick="eliminarRegistro(${i})">🗑️</button>
-</td>
-</tr>
-`;
-
-}
-
-});
-
-document.getElementById("tabla").innerHTML=html;
-
-}
 
 
-function actualizarTotales(){
 
-let inversion = 0;
-let ingresos = 0;
-let pendiente = 0;
-let ganancia = 0;
 
-registros.forEach((r,i)=>{
-  inversion += r.costo;
-  ingresos += r.abonado;
-  pendiente += r.restante;
-  ganancia += r.ganancia;
-});
 
-document.getElementById("inv").innerText = inversion;
-document.getElementById("ing").innerText = ingresos;
-document.getElementById("pen").innerText = pendiente;
-document.getElementById("gan").innerText = ganancia;
 
-}
-function eliminarRegistro(i){
 
-    registros.splice(i,1);
 
-    localStorage.setItem(
-        "registros",
-        JSON.stringify(registros)
-    );
 
-    mostrar();
-    actualizarTotales();
 
-}
 
-function editar(i){
 
-  let nuevoAbono = prompt(
-    "Nuevo abono:",
-    registros[i].abonado
-  );
 
-  if(nuevoAbono!==null){
 
-    registros[i].abonado += Number(nuevoAbono);
 
-registros[i].restante =
-    registros[i].venta -
-    registros[i].abonado;
-
-if(registros[i].restante <= 0){
-    registros[i].restante = 0;
-    registros[i].estado = "PAGADA";
-}
-    
-    localStorage.setItem(
-  "registros",
-  JSON.stringify(registros)
-);
-
-    mostrar();
-    actualizarTotales();
-  }
-
-}
-  mostrar();
-actualizarTotales();
-</script>
-</body>
-</html>
+  
