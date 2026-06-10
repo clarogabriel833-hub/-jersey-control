@@ -229,6 +229,32 @@ document.getElementById("pen").innerText = pendiente;
 document.getElementById("gan").innerText = ganancia;
 
 }
+function eliminarRegistro(i){
+  registros.splice(i,1);
+  mostrar();
+  actualizarTotales();
+}
+
+function editar(i){
+
+  let nuevoAbono = prompt(
+    "Nuevo abono:",
+    registros[i].abonado
+  );
+
+  if(nuevoAbono!==null){
+
+    registros[i].abonado = Number(nuevoAbono);
+
+    registros[i].restante =
+      registros[i].venta -
+      registros[i].abonado;
+
+    mostrar();
+    actualizarTotales();
+  }
+
+}
 </script>
 </body>
 </html>
