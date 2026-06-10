@@ -63,6 +63,11 @@ border-radius:10px;
 text-align:center;
 font-weight:bold;
 }
+  .pagada{
+    background:#d4edda;
+    color:#155724;
+    font-weight:bold;
+}
 </style>
 </head>
 
@@ -253,15 +258,16 @@ function editar(i){
 
   if(nuevoAbono!==null){
 
-    registros[i].abonado = Number(nuevoAbono);
+    registros[i].abonado += Number(nuevoAbono);
 
-    registros[i].restante =
-      registros[i].venta -
-      registros[i].abonado;
-    
-    registros[i].ganancia =
+registros[i].restante =
     registros[i].venta -
-    registros[i].costo;
+    registros[i].abonado;
+
+if(registros[i].restante <= 0){
+    registros[i].restante = 0;
+    registros[i].estado = "PAGADA";
+}
     
     localStorage.setItem(
   "registros",
