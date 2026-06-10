@@ -116,6 +116,89 @@ $<span id="pen">0</span>
 <button>Agregar</button>
 
 </div>
+<div class="card">
+<h3>🔍 Buscar</h3>
 
+<input id="buscar" placeholder="Buscar playera o cliente">
+</div>
+
+<div class="card">
+<h3>📦 Inventario</h3>
+
+<table>
+<thead>
+<tr>
+<th>Playera</th>
+<th>Talla</th>
+<th>Cliente</th>
+<th>Venta</th>
+<th>Abonado</th>
+<th>Estado</th>
+</tr>
+</thead>
+
+<tbody id="tabla"></tbody>
+
+</table>
+</div>
+
+<script>
+
+let registros=[];
+
+document.getElementById("buscar").addEventListener("keyup",mostrar);
+
+function agregarRegistro(){
+
+const registro={
+nombre:document.getElementById("nombre").value,
+talla:document.getElementById("talla").value,
+cliente:document.getElementById("cliente").value,
+venta:document.getElementById("venta").value,
+abonado:document.getElementById("abonado").value,
+estado:document.getElementById("estado").value
+};
+
+registros.push(registro);
+
+mostrar();
+
+}
+
+function mostrar(){
+
+let texto=document.getElementById("buscar").value.toLowerCase();
+
+let html="";
+
+registros.forEach(r=>{
+
+if(
+r.nombre.toLowerCase().includes(texto) ||
+r.cliente.toLowerCase().includes(texto)
+){
+
+html+=`
+<tr>
+<td>${r.nombre}</td>
+<td>${r.talla}</td>
+<td>${r.cliente}</td>
+<td>$${r.venta}</td>
+<td>$${r.abonado}</td>
+<td>${r.estado}</td>
+</tr>
+`;
+
+}
+
+});
+
+document.getElementById("tabla").innerHTML=html;
+
+}
+
+document.querySelector("button").onclick=agregarRegistro;
+
+</script>
 </body>
 </html>
