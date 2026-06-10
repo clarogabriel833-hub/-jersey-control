@@ -231,9 +231,17 @@ document.getElementById("gan").innerText = ganancia;
 
 }
 function eliminarRegistro(i){
-  registros.splice(i,1);
-  mostrar();
-  actualizarTotales();
+
+    registros.splice(i,1);
+
+    localStorage.setItem(
+        "registros",
+        JSON.stringify(registros)
+    );
+
+    mostrar();
+    actualizarTotales();
+
 }
 
 function editar(i){
