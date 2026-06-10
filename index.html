@@ -216,7 +216,7 @@ let ingresos = 0;
 let pendiente = 0;
 let ganancia = 0;
 
-registros.forEach(r=>{
+registros.forEach((r,i)=>{
   inversion += r.costo;
   ingresos += r.abonado;
   pendiente += r.restante;
