@@ -146,6 +146,7 @@ $<span id="pen">0</span>
 <thead>
 <tr>
   <select id="filtro">
+    
   <option value="">Todos</option>
   <option value="STK">STK</option>
   <option value="EN CAMINO">EN CAMINO</option>
@@ -173,7 +174,6 @@ $<span id="pen">0</span>
 
 let registros = JSON.parse(localStorage.getItem("registros")) || [];
 
-document.getElementById("buscar").addEventListener("keyup",mostrar);
 document.getElementById("buscar")
 .addEventListener("keyup", mostrar);
 
