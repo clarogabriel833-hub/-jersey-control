@@ -177,8 +177,10 @@ document.getElementById("buscar").addEventListener("keyup",mostrar);
 document.getElementById("buscar")
 .addEventListener("keyup", mostrar);
 
-document.getElementById("filtro")
-.addEventListener("change", mostrar);
+if(document.getElementById("filtro")){
+  document.getElementById("filtro")
+  .addEventListener("change", mostrar);
+}
                       
 function agregarRegistro(){
 
