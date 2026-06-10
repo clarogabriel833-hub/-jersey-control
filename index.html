@@ -146,7 +146,7 @@ $<span id="pen">0</span>
 
 <script>
 
-let registros=[];
+let registros = JSON.parse(localStorage.getItem("registros")) || [];
 
 document.getElementById("buscar").addEventListener("keyup",mostrar);
 
