@@ -254,6 +254,11 @@ function editar(i){
     registros[i].ganancia =
     registros[i].venta -
     registros[i].costo;
+    
+    localStorage.setItem(
+  "registros",
+  JSON.stringify(registros)
+);
 
     mostrar();
     actualizarTotales();
