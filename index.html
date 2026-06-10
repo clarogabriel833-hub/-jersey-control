@@ -164,7 +164,7 @@ estado:document.getElementById("estado").value
 registro.restante=registro.venta-registro.abonado;
 registro.ganancia=registro.venta-registro.costo;
 
-registros.push(registro);
+actualizarTotales();
 
 mostrar();
 
@@ -204,7 +204,25 @@ document.getElementById("tabla").innerHTML=html;
 }
 
 document.querySelector("button").onclick=agregarRegistro;
+function actualizarTotales(){
 
+let inversion = 0;
+let ingresos = 0;
+let pendiente = 0;
+let ganancia = 0;
+
+registros.forEach(r=>{
+  inversion += r.costo;
+  ingresos += r.abonado;
+  pendiente += r.restante;
+  ganancia += r.ganancia;
+});
+
+document.getElementById("inversion").innerText = "$" + inversion;
+document.getElementById("ingresos").innerText = "$" + ingresos;
+document.getElementById("pendiente").innerText = "$" + pendiente;
+document.getElementById("ganancia").innerText = "$" + ganancia;
+}
 </script>
 </body>
 </html>
