@@ -154,10 +154,14 @@ const registro={
 nombre:document.getElementById("nombre").value,
 talla:document.getElementById("talla").value,
 cliente:document.getElementById("cliente").value,
-venta:document.getElementById("venta").value,
-abonado:document.getElementById("abonado").value,
+costo:Number(document.getElementById("costo").value),
+venta:Number(document.getElementById("venta").value),
+abonado:Number(document.getElementById("abonado").value || 0),
 estado:document.getElementById("estado").value
 };
+
+registro.restante=registro.venta-registro.abonado;
+registro.ganancia=registro.venta-registro.costo;
 
 registros.push(registro);
 
