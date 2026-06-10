@@ -203,14 +203,14 @@ registros.push(registro);
 localStorage.setItem("registros", JSON.stringify(registros));
 actualizarTotales();
 mostrar();
+  document.getElementById("nombre").value = "";
+document.getElementById("talla").value = "";
+document.getElementById("cliente").value = "";
+document.getElementById("costo").value = "";
+document.getElementById("venta").value = "";
+document.getElementById("abonado").value = "";
 
 }
-
-function mostrar(){
-
-let texto = document.getElementById("buscar").value.toLowerCase();
-let filtro = document.getElementById("filtro").value;
-
 let html="";
 
 registros.forEach((r,i)=>{
