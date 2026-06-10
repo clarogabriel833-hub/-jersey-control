@@ -205,15 +205,23 @@ mostrar();
 
 function mostrar(){
 
-let texto=document.getElementById("buscar").value.toLowerCase();
+let texto = document.getElementById("buscar").value.toLowerCase();
+let filtro = document.getElementById("filtro").value;
 
 let html="";
 
 registros.forEach((r,i)=>{
 
 if(
+(
 r.nombre.toLowerCase().includes(texto) ||
 r.cliente.toLowerCase().includes(texto)
+)
+&&
+(
+filtro === "" ||
+r.estado === filtro
+)
 ){
 
 html+=`
