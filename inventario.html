@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventario - Jersey Control Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<div class="container">
+
+<h1>📦 Inventario</h1>
+
+<p>Hola Gabriel 👋</p>
+
+<div class="menu">
+
+<a href="index.html">
+➕ Registrar
+</a>
+
+<a href="inventario.html" class="activo">
+📦 Inventario
+</a>
+
+</div>
+
+<div class="dashboard">
+
+<div class="card stat">
+<h3>📦 Jerseys</h3>
+<span id="totalJerseys">0</span>
+</div>
+
+<div class="card stat">
+<h3>💰 Inversión</h3>
+<span id="inv">$0</span>
+</div>
+
+<div class="card stat">
+<h3>📈 Ganancia</h3>
+<span id="gan">$0</span>
+</div>
+
+<div class="card stat">
+<h3>⏳ Pendiente</h3>
+<span id="pen">$0</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<input
+id="buscar"
+placeholder="🔍 Buscar playera o cliente..."
+>
+
+</div>
+
+<div id="contenedorInventario">
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
