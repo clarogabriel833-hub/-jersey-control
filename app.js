@@ -332,13 +332,13 @@ actualizarDashboard();
 function editarRetirado(){
 
 let nuevo = prompt(
-"Nuevo retirado:",
-retirado
+"¿Cuánto retiraste?",
+0
 );
 
 if(nuevo===null) return;
 
-retirado = Number(nuevo);
+retirado += Number(nuevo);
 
 localStorage.setItem(
 "retirado",
