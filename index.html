@@ -14,7 +14,44 @@
 
 <h1>⚽ Jersey Control Pro</h1>
 <p>Control de ventas y abonos</p>
+  
+<div class="card">
 
+<h2>➕ Agregar Jersey</h2>
+
+<input id="playera" placeholder="Nombre de la playera">
+
+<select id="talla">
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>2XL</option>
+<option>3XL</option>
+<option>4XL</option>
+</select>
+
+<input id="cliente" placeholder="Cliente">
+
+<input id="costo" type="number" placeholder="Costo">
+
+<input id="venta" type="number" placeholder="Precio de venta">
+
+<input id="abonado" type="number" placeholder="Abonado">
+
+<select id="estado">
+<option>STK</option>
+<option>EN CAMINO</option>
+<option>ENTREGADA</option>
+<option>PAGADA</option>
+</select>
+
+<button onclick="agregarRegistro()">
+Guardar Jersey
+</button>
+
+</div>
+  
 <div class="dashboard">
 
 <div class="card">
