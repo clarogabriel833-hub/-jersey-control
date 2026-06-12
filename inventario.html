@@ -71,14 +71,17 @@
 
 </div>
 
-  <div class="card">
+<div class="card">
 
 <input
 id="buscar"
 placeholder="🔍 Buscar playera o cliente..."
 >
+
 </div>
-  
+
+<div class="dashboard">
+
 <div class="card stat" onclick="filtrarEstado('STK')">
 <h3>📦 STK</h3>
 <span id="stkTotal">0</span>
@@ -97,6 +100,14 @@ placeholder="🔍 Buscar playera o cliente..."
 <div class="card stat" onclick="filtrarEstado('PAGADA')">
 <h3>✅ Pagadas</h3>
 <span id="pagadasTotal">0</span>
+</div>
+
+</div>
+
+<div id="contenedorInventario">
+
+</div>
+
 </div>
 
 <script src="app.js"></script>
