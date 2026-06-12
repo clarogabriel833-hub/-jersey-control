@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inventario - Jersey Control Pro</title>
+<title>Inventario</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,11 +13,13 @@
 
 <h1>📦 Inventario</h1>
 
-<p>Hola Gabriel 👋</p>
-
 <div class="menu">
 
 <a href="index.html">
+📊 Dashboard
+</a>
+
+<a href="registrar.html">
 ➕ Registrar
 </a>
 
@@ -27,80 +29,12 @@
 
 </div>
 
-<div class="dashboard">
-
-<div class="card stat">
-<h3>📦 Jerseys</h3>
-<span id="totalJerseys">0</span>
-</div>
-
-<div class="card stat" onclick="editarCapital()">
-<h3>💵 Capital</h3>
-<span id="capital">$9000</span>
-</div>
-
-<div class="card stat">
-<h3>💰 Inversión</h3>
-<span id="inv">$0</span>
-</div>
-
-<div class="card stat">
-<h3>💵 Cobrado</h3>
-<span id="cobrado">$0</span>
-</div>
-
-<div class="card stat">
-<h3>📈 Ganancia</h3>
-<span id="gan">$0</span>
-</div>
-
-<div class="card stat">
-<h3>⏳ Pendiente</h3>
-<span id="pen">$0</span>
-</div>
-
-<div class="card stat" onclick="editarRetirado()">
-<h3>💸 Retirado</h3>
-<span id="retirado">$9700</span>
-</div>
-
-<div class="card stat">
-<h3>💳 Tarjeta</h3>
-<span id="tarjeta">$0</span>
-</div>
-
-</div>
-
 <div class="card">
 
 <input
 id="buscar"
 placeholder="🔍 Buscar playera o cliente..."
 >
-
-</div>
-
-<div class="dashboard">
-
-<div class="card stat" onclick="filtrarEstado('STK')">
-<h3>📦 STK</h3>
-<span id="stkTotal">0</span>
-</div>
-
-<div class="card stat" onclick="filtrarEstado('EN CAMINO')">
-<h3>🚚 Camino</h3>
-<span id="caminoTotal">0</span>
-</div>
-
-<div class="card stat" onclick="filtrarEstado('ENTREGADA')">
-<h3>📬 Entregadas</h3>
-<span id="entregadasTotal">0</span>
-</div>
-
-<div class="card stat" onclick="filtrarEstado('PAGADA')">
-<h3>✅ Pagadas</h3>
-<span id="pagadasTotal">0</span>
-</div>
 
 </div>
 
