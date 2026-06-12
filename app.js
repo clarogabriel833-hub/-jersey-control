@@ -320,6 +320,8 @@ if(nuevo===null) return;
 
 function editarCapital(){
 
+alert("Funciona");
+
 let nuevo = prompt(
 "¿Cuánto dinero agregaste?",
 0
@@ -334,10 +336,12 @@ localStorage.setItem(
 capital
 );
 
+alert("Capital actual: " + capital);
+
 actualizarDashboard();
 
 }
-
+  
 localStorage.setItem(
 "capital",
 capital
