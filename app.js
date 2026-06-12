@@ -69,7 +69,7 @@ document.getElementById("abonado").value="";
 
 function mostrar(){
 
-let html="";
+let html = "";
 
 registros.forEach((r,i)=>{
 
@@ -98,10 +98,10 @@ html;
 
 function actualizarTotales(){
 
-let inversion=0;
-let ingresos=0;
-let pendiente=0;
-let ganancia=0;
+let inversion = 0;
+let ingresos = 0;
+let pendiente = 0;
+let ganancia = 0;
 
 registros.forEach(r=>{
 
@@ -113,16 +113,16 @@ ganancia += Number(r.ganancia);
 });
 
 document.getElementById("inv").innerText =
-"$"+inversion;
+"$" + inversion;
 
 document.getElementById("ing").innerText =
-"$"+ingresos;
+"$" + ingresos;
 
 document.getElementById("pen").innerText =
-"$"+pendiente;
+"$" + pendiente;
 
 document.getElementById("gan").innerText =
-"$"+ganancia;
+"$" + ganancia;
 
 }
 
@@ -149,7 +149,7 @@ let nuevoAbono = prompt(
 0
 );
 
-if(nuevoAbono===null){
+if(nuevoAbono === null){
 return;
 }
 
