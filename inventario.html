@@ -79,34 +79,24 @@ placeholder="🔍 Buscar playera o cliente..."
 >
 </div>
   
-<div class="dashboard">
-
-<div class="card stat">
+<div class="card stat" onclick="filtrarEstado('STK')">
 <h3>📦 STK</h3>
 <span id="stkTotal">0</span>
 </div>
 
-<div class="card stat">
+<div class="card stat" onclick="filtrarEstado('EN CAMINO')">
 <h3>🚚 Camino</h3>
 <span id="caminoTotal">0</span>
 </div>
 
-<div class="card stat">
+<div class="card stat" onclick="filtrarEstado('ENTREGADA')">
 <h3>📬 Entregadas</h3>
 <span id="entregadasTotal">0</span>
 </div>
 
-<div class="card stat">
+<div class="card stat" onclick="filtrarEstado('PAGADA')">
 <h3>✅ Pagadas</h3>
 <span id="pagadasTotal">0</span>
-</div>
-
-</div>
-
-<div id="contenedorInventario">
-
-</div>
-
 </div>
 
 <script src="app.js"></script>
