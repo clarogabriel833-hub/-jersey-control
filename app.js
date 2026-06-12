@@ -311,15 +311,6 @@ Number(localStorage.getItem("retirado")) || 9700;
 
 function editarCapital(){
 
-let nuevo = prompt(
-"Nuevo capital:",
-capital
-);
-
-if(nuevo===null) return;
-
-function editarCapital(){
-
 alert("Funciona");
 
 let nuevo = prompt(
@@ -341,7 +332,6 @@ alert("Capital actual: " + capital);
 actualizarDashboard();
 
 }
-  
 localStorage.setItem(
 "capital",
 capital
