@@ -152,13 +152,15 @@ return;
 let inversion=0;
 let ganancia=0;
 let pendiente=0;
-
+let cobrado=0;
+  
 registros.forEach(r=>{
 
 inversion += Number(r.costo);
 ganancia += Number(r.ganancia);
 pendiente += Number(r.restante);
-
+cobrado += Number(r.abonado);
+  
 });
 
 document.getElementById("totalJerseys")
@@ -172,6 +174,12 @@ document.getElementById("gan")
 
 document.getElementById("pen")
 .innerText = "$"+pendiente;
+
+ document.getElementById("cobrado")
+.innerText = "$"+cobrado;
+
+document.getElementById("tarjeta")
+.innerText = "$"+(cobrado - 9700); 
 
 }
 
