@@ -153,6 +153,11 @@ let inversion=0;
 let ganancia=0;
 let pendiente=0;
 let cobrado=0;
+
+let stk=0;
+let camino=0;
+let entregadas=0;
+let pagadas=0;
   
 registros.forEach(r=>{
 
@@ -160,6 +165,22 @@ inversion += Number(r.costo);
 ganancia += Number(r.ganancia);
 pendiente += Number(r.restante);
 cobrado += Number(r.abonado);
+  
+if(r.estado==="STK"){
+stk++;
+}
+
+if(r.estado==="EN CAMINO"){
+camino++;
+}
+
+if(r.estado==="ENTREGADA"){
+entregadas++;
+}
+
+if(r.estado==="PAGADA"){
+pagadas++;
+}
   
 });
 
@@ -180,6 +201,18 @@ document.getElementById("pen")
 
 document.getElementById("tarjeta")
 .innerText = "$"+(cobrado - 9700); 
+
+document.getElementById("stkTotal")
+.innerText = stk;
+
+document.getElementById("caminoTotal")
+.innerText = camino;
+
+document.getElementById("entregadasTotal")
+.innerText = entregadas;
+
+document.getElementById("pagadasTotal")
+.innerText = pagadas;
 
 }
 
