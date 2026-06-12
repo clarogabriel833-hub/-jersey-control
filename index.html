@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jersey Control Pro</title>
+<title>Dashboard - Jersey Control Pro</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,12 +12,15 @@
 <div class="container">
 
 <h1>⚽ Jersey Control Pro</h1>
-
-<p>Registrar nueva playera</p>
+<p>Dashboard General</p>
 
 <div class="menu">
 
 <a href="index.html" class="activo">
+📊 Dashboard
+</a>
+
+<a href="registrar.html">
 ➕ Registrar
 </a>
 
@@ -27,38 +30,67 @@
 
 </div>
 
-<div class="card">
+<div class="dashboard">
 
-<input id="playera" placeholder="Nombre de la playera">
+<div class="card stat">
+<h3>📦 Jerseys</h3>
+<span id="totalJerseys">0</span>
+</div>
 
-<select id="talla">
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-<option>2XL</option>
-<option>3XL</option>
-<option>4XL</option>
-</select>
+<div class="card stat">
+<h3>💵 Capital</h3>
+<span id="capital">$9000</span>
+</div>
 
-<input id="cliente" placeholder="Cliente">
+<div class="card stat">
+<h3>💰 Inversión</h3>
+<span id="inv">$0</span>
+</div>
 
-<input id="costo" type="number" placeholder="Costo">
+<div class="card stat">
+<h3>💵 Cobrado</h3>
+<span id="cobrado">$0</span>
+</div>
 
-<input id="venta" type="number" placeholder="Precio de venta">
+<div class="card stat">
+<h3>📈 Ganancia</h3>
+<span id="gan">$0</span>
+</div>
 
-<input id="abonado" type="number" placeholder="Abonado">
+<div class="card stat">
+<h3>⏳ Pendiente</h3>
+<span id="pen">$0</span>
+</div>
 
-<select id="estado">
-<option>STK</option>
-<option>EN CAMINO</option>
-<option>ENTREGADA</option>
-<option>PAGADA</option>
-</select>
+<div class="card stat">
+<h3>💸 Retirado</h3>
+<span id="retirado">$9700</span>
+</div>
 
-<button onclick="agregarRegistro()">
-Guardar Jersey
-</button>
+<div class="card stat">
+<h3>💳 Tarjeta</h3>
+<span id="tarjeta">$0</span>
+</div>
+
+<div class="card stat">
+<h3>📦 STK</h3>
+<span id="stkTotal">0</span>
+</div>
+
+<div class="card stat">
+<h3>🚚 Camino</h3>
+<span id="caminoTotal">0</span>
+</div>
+
+<div class="card stat">
+<h3>📬 Entregadas</h3>
+<span id="entregadasTotal">0</span>
+</div>
+
+<div class="card stat">
+<h3>✅ Pagadas</h3>
+<span id="pagadasTotal">0</span>
+</div>
 
 </div>
 
