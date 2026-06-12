@@ -318,7 +318,25 @@ capital
 
 if(nuevo===null) return;
 
-capital = Number(nuevo);
+function editarCapital(){
+
+let nuevo = prompt(
+"¿Cuánto dinero agregaste?",
+0
+);
+
+if(nuevo===null) return;
+
+capital += Number(nuevo);
+
+localStorage.setItem(
+"capital",
+capital
+);
+
+actualizarDashboard();
+
+}
 
 localStorage.setItem(
 "capital",
