@@ -199,9 +199,15 @@ document.getElementById("pen")
  document.getElementById("cobrado")
 .innerText = "$"+cobrado;
 
-document.getElementById("tarjeta")
-.innerText = "$"+(cobrado - 9700); 
+document.getElementById("capital")
+.innerText = "$"+capital;
 
+document.getElementById("retirado")
+.innerText = "$"+retirado;
+
+document.getElementById("tarjeta")
+.innerText = "$"+(cobrado - retirado);
+  
 document.getElementById("stkTotal")
 .innerText = stk;
 
