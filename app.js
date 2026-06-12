@@ -297,3 +297,48 @@ t.style.display="none";
 );
 
 cargarInventario();
+let capital =
+Number(localStorage.getItem("capital")) || 9000;
+
+let retirado =
+Number(localStorage.getItem("retirado")) || 9700;
+
+function editarCapital(){
+
+let nuevo = prompt(
+"Nuevo capital:",
+capital
+);
+
+if(nuevo===null) return;
+
+capital = Number(nuevo);
+
+localStorage.setItem(
+"capital",
+capital
+);
+
+actualizarDashboard();
+
+}
+
+function editarRetirado(){
+
+let nuevo = prompt(
+"Nuevo retirado:",
+retirado
+);
+
+if(nuevo===null) return;
+
+retirado = Number(nuevo);
+
+localStorage.setItem(
+"retirado",
+retirado
+);
+
+actualizarDashboard();
+
+}
