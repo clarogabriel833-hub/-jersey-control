@@ -83,3 +83,65 @@ contenedor.innerHTML = html;
 }
 
 cargarInventario();
+function actualizarDashboard(){
+
+let registros =
+JSON.parse(localStorage.getItem("registros")) || [];
+
+let inversion=0;
+let cobrado=0;
+let pendiente=0;
+let ganancia=0;
+
+let stk=0;
+let camino=0;
+let entregadas=0;
+let pagadas=0;
+
+registros.forEach(r=>{
+
+inversion += Number(r.costo || 0);
+cobrado += Number(r.abonado || 0);
+pendiente += Number(r.restante || 0);
+
+ganancia +=
+Number(r.venta || 0) -
+Number(r.costo || 0);
+
+if(r.estado==="STK") stk++;
+if(r.estado==="EN CAMINO") camino++;
+if(r.estado==="ENTREGADA") entregadas++;
+if(r.estado==="PAGADA") pagadas++;
+
+});
+
+document.getElementById("totalJerseys")?.innerText =
+registros.length;
+
+document.getElementById("inv")?.innerText =
+"$"+inversion;
+
+document.getElementById("cobrado")?.innerText =
+"$"+cobrado;
+
+document.getElementById("pen")?.innerText =
+"$"+pendiente;
+
+document.getElementById("gan")?.innerText =
+"$"+ganancia;
+
+document.getElementById("stkTotal")?.innerText =
+stk;
+
+document.getElementById("caminoTotal")?.innerText =
+camino;
+
+document.getElementById("entregadasTotal")?.innerText =
+entregadas;
+
+document.getElementById("pagadasTotal")?.innerText =
+pagadas;
+
+}
+
+actualizarDashboard();
